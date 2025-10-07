@@ -86,3 +86,33 @@ C:/Users/lab611/Desktop/HW1/
 *   **`ModuleNotFoundError`:** Ensure you have installed all the packages from `requirements.txt` by running `pip install -r requirements.txt`.
 *   **Streamlit Command Not Found:** If `streamlit run` is not recognized, make sure your Python scripts directory is in your system's PATH. Alternatively, you can run it as a module: `python -m streamlit run linear_regression.py`.
 *   **Deployment Issues:** Check the logs in your Streamlit Cloud dashboard. The most common issue is a missing or incorrect `requirements.txt` file.
+
+## CRISP-DM Workflow for Linear Regression
+
+This application is structured around the Cross-Industry Standard Process for Data Mining (CRISP-DM) methodology. Each step is represented in the application's interface and code.
+
+### 1. Business Understanding
+The primary goal is to understand and visualize the relationship between an independent variable (X) and a dependent variable (y). Simple linear regression is used to model this relationship, providing a clear and interactive way to see how the variables are connected.
+
+### 2. Data Understanding
+The application uses synthetically generated data to simulate a real-world scenario. Users have control over the data generation process, with sliders to adjust the following parameters:
+*   **Slope (a):** The coefficient of the linear relationship.
+*   **Intercept (b):** The starting point of the linear relationship.
+*   **Noise:** The amount of random variation added to the data.
+*   **Number of data points:** The size of the dataset.
+
+### 3. Data Preparation
+Data is prepared by first generating random values for the independent variable (X). Then, the dependent variable (y) is calculated based on the user-defined slope, intercept, and a random noise component. This process creates a dataset ready for modeling.
+
+### 4. Modeling
+A simple linear regression model is implemented using the `LinearRegression` class from the `scikit-learn` library. The model is trained on the prepared (X, y) dataset to learn the underlying relationship.
+
+### 5. Evaluation
+The model's performance is evaluated both visually and quantitatively:
+*   **Visual:** The application plots the original data points and overlays the fitted regression line, allowing for a direct visual comparison.
+*   **Quantitative:** The original (true) parameters (`a`, `b`) are displayed alongside the parameters fitted by the model (`a_fit`, `b_fit`), showing how accurately the model captured the relationship.
+
+### 6. Deployment
+The model is deployed as an interactive Streamlit web application. This makes the model's behavior transparent and easy to explore.
+*   **Local Deployment:** The application can be run on a local machine using the `streamlit run linear_regression.py` command, as detailed in the [Quick Start](#quick-start) section.
+*   **Cloud Deployment:** The application is made globally available via Streamlit Cloud, providing a permanent and shareable link for demonstration. The steps are detailed in the [Deployment on Streamlit Cloud](#deployment-on-streamlit-cloud) section.
